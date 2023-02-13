@@ -62,7 +62,22 @@ iframe {
 }
 
 .container {
-  /* max-width: 1240px; */
-  padding: 0 75px;
-  /* margin: 0 auto; */
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    padding: 0 45px;
+  }
+}
+
+@media (min-width: 1367px) {
+  
 }
