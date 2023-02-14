@@ -140,6 +140,61 @@
   grid-area: balls;
 }
 
+.sale-offer_book {
+  max-width: 65px;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.sale-offer_time {
+  font-weight: 700;
+  position: absolute;
+  top: 28px;
+  left: 10px;
+}
+
+.sale-offer_sneakers {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 11px 0;
+  text-align: center;
+  background-color: var(--blue-color);
+  border-radius: 8px;
+}
+
+.sale-offer_year {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 11px 0;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--red-color);
+  background-color: var(--white-color);
+  border-radius: 8px;
+}
+
+.sale-offer_gifts,
+.sale-offer_laptop {
+  position: absolute;
+  left: 10px;
+  bottom: 16px;
+  font-weight: 700;
+}
+
+.sale-offer_chem {
+  position: absolute;
+  left: 9px;
+  right: 10px;
+  bottom: 10px;
+  font-weight: 700;
+}
+
 @media (min-width: 769px) {
   .ad__banner {
     margin-bottom: 40px;
@@ -168,6 +223,42 @@
   .grid__box_fifth {
     gap: 21px;
   }
+
+  .sale-offer_book {
+    max-width: 117px;
+    left: 10px;
+    bottom: 15px;
+  }
+  
+  .sale-offer_time {
+    font-weight: 700;
+    top: 15px;
+    left: 5px;
+  }
+  
+  .sale-offer_sneakers {
+    padding: 20px 0;
+  }
+  
+  .sale-offer_year {
+    left: 26px;
+    bottom: 26px;
+    padding: 22px 0;
+    max-width: 513px;
+  }
+  
+  .sale-offer_gifts,
+  .sale-offer_laptop {
+    left: 20px;
+    bottom: 20px;
+    max-width: 150px;
+  }
+  
+  .sale-offer_chem {
+    left: 3px;
+    bottom: 11px;
+  }
+  
 }
 
 @media (min-width: 1025px) {
@@ -211,6 +302,45 @@
     top: 10px;
     left: 10px;
   }
+
+  .sale-offer_book {
+    max-width: 190px;
+    left: 9px;
+    bottom: 32px;
+  }
+  
+  .sale-offer_time {
+    top: 54px;
+    left: 9px;
+  }
+  
+  .sale-offer_sneakers {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 25px 0;
+  }
+  
+  .sale-offer_year {
+    left: 30px;
+    bottom: 39px;
+    padding: 24px 0;
+  }
+  
+  .sale-offer_gifts {
+    left: 30px;
+    bottom: 27px;
+    max-width: 257px;
+  }
+  .sale-offer_laptop {
+    left: 30px;
+    bottom: 36px;
+    max-width: 280px;
+  }
+  
+  .sale-offer_chem {
+    bottom: 19px;
+  }
 }
 
 @media (min-width: 1736px) {
@@ -240,5 +370,45 @@
   .grid__box_fifth {
     column-gap: 30px;
     row-gap: 26px;
+  }
+
+  .sale-offer_book {
+    max-width: 190px;
+    left: 20px;
+    bottom: 27px;
+  }
+
+  .sale-offer_sneakers {
+    font-size: 40px;
+    line-height: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .sale-offer_time {
+    top: 77px;
+    left: 11px;
+  }
+  
+  .sale-offer_year {
+    left: 50px;
+    bottom: 50px;
+    max-width: 643px;
+  }
+  
+  .sale-offer_gifts {
+    left: 30px;
+    bottom: 30px;
+    max-width: 340px;
+  }
+  .sale-offer_laptop {
+    left: 30px;
+    bottom: 40px;
+    max-width: 373px;
+  }
+  
+  .sale-offer_chem {
+    left: 20px;
+    bottom: 37px;
   }
 }

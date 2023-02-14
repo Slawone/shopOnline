@@ -11,10 +11,28 @@
   border-radius: 50%;
 }
 
+.sale-offer {
+  font-size: 12px;
+}
+
+.sale-offer span  {
+   font-weight: 700;
+}
+
+@media (min-width: 481px) {
+  .sale-offer {
+    font-size: 16px;
+  }
+}
+
 @media (min-width: 1025px) {
   .sale-circle {
     width: 88px;
     height: 88px;
+    font-size: 30px;
+  }
+
+  .sale-offer {
     font-size: 30px;
   }
 }
