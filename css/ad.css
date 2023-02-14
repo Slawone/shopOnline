@@ -1,3 +1,5 @@
+@import 'sale-items.css';
+
 .ad__banner {
   margin-bottom: 20px;
   text-align: center;
@@ -28,6 +30,10 @@
   'fourthBox';
 }
 
+.grid__item {
+  position: relative;
+}
+
 .grid__box_first {
   grid-area: firstBox;
   display: grid;
@@ -46,9 +52,23 @@
 .grid__item_time {
   grid-area: time;
 }
+
+.sale-circle_time {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
 .grid__item_redshoes {
   grid-area: redshoes;
 }
+
+.sale-circle_redshoes {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
 .grid__box_second {
   grid-area: secondBox;
   display: grid;
@@ -72,6 +92,12 @@
 .grid__item_laptop {
   grid-area: laptop;
 }
+
+.sale-circle_laptop {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
 .grid__box_fourth {
   grid-area: fourthBox;
   display: grid;
@@ -89,12 +115,27 @@
   "girl chem"
   "girl balls";
 }
+
 .grid__item_girl {
   grid-area: girl;
 }
+
+.sale-circle_girl {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
 .grid__item_chem {
   grid-area: chem;
 }
+
+.sale-circle_chem {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
 .grid__item_balls {
   grid-area: balls;
 }
@@ -148,6 +189,27 @@
   .grid__box_fifth {
     column-gap: 44px;
     row-gap: 18px;
+  }
+
+  .sale-circle_time {
+    bottom: 10px;
+    right: 10px;
+  }
+  .sale-circle_redshoes {
+    top: 10px;
+    left: 10px;
+  }
+  .sale-circle_laptop {
+    bottom: 10px;
+    right: 10px;
+  }
+  .sale-circle_girl {
+    bottom: 10px;
+    right: 23px;
+  }
+  .sale-circle_chem{
+    top: 10px;
+    left: 10px;
   }
 }
 
