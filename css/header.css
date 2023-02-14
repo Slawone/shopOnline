@@ -1,0 +1,268 @@
+.header {
+  padding-top: 20px;
+  margin-bottom: 41px;
+}
+
+.header__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 30px);
+  gap: 20px;
+  grid-template-areas: 
+  "logo ."
+  "button active"
+  "form form";
+}
+
+.logo {
+  grid-area: logo;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--second-color);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.logo__blue-span {
+  color: var(--main-color);
+}
+
+.header__btn {
+  grid-area: button;
+  width: 79px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 4px;
+}
+
+.btn__img {
+  width: 14px;
+  height: 14px;
+}
+
+.btn__text {
+  font-size: 12px;
+  color: var(--white-color);
+}
+
+.active__list {
+  grid-area: active;
+  display: flex;
+  gap: 20px;
+  justify-content: end;
+}
+
+.active__text {
+  display: none;
+}
+
+.form {
+  grid-area: form;
+  position: relative;
+}
+
+.form__input {
+  background-color: #efefef;
+  border-radius: 30px;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 8px 16px 11px;
+}
+
+.form__input::placeholder {
+  font-size: 8px;
+  line-height: 10px;
+  font-weight: 700;
+  color: var( --gray-color);
+}
+
+.form__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  border-radius: 30px;
+  background-color: var(--main-color);
+  border: none;
+  background-image: url('../img/icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+}
+
+
+@media (min-width: 769px) {
+  .header {
+    padding-top: 25px;
+    margin-bottom: 50px;
+  }
+   
+  .header__container {
+    grid-template-columns: max-content repeat(2, 1fr);
+    grid-template-rows: repeat(2, 42px);
+    column-gap: 0;
+    row-gap: 29px;
+    grid-template-areas: 
+    "logo . active"
+    "button form form";
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .header__btn {
+    width: 115px;
+    height: 100%;
+    gap: 4px;
+    border-radius: 6px;
+  }
+  
+  .btn__img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .btn__text {
+    font-size: 16px;
+  }
+
+  .active__list {
+    gap: 30px;
+  }
+
+  .active__item {
+    text-align: center;
+  }
+  
+  .active__text {
+    display: block;
+    color: var(--second-color);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .form__input {
+    padding-left: 30px;
+  }
+  
+  .form__input::placeholder {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  
+  .form__btn {
+    width: 82px;
+    background-size: 22px 22px;
+  }  
+}
+
+@media (min-width: 1025px) {
+  .header {
+    padding-top: 35px;
+    margin-bottom: 60px;
+  }
+
+  .header__container {
+    grid-template-rows: repeat(2, 54px);
+    column-gap: 50px;
+    row-gap: 34px;
+  }
+
+  .logo {
+    font-size: 30px;
+  }
+
+  .header__btn {
+    width: 151px;
+    height: 100%;
+    gap: 7px;
+    border-radius: 10px;
+  }
+  
+  .btn__img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .btn__text {
+    font-size: 22px;
+  }
+
+  .active__list {
+    gap: 40px;
+  }
+
+  .active__item {
+    text-align: center;
+  }
+
+  .active__icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .active__text {
+    display: block;
+    color: var(--second-color);
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .form__input {
+    padding-left: 30px;
+  }
+  
+  .form__input::placeholder {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  
+  .form__btn {
+    width: 82px;
+    background-size: 22px 22px;
+  }  
+}
+
+@media (min-width: 1367px) {
+  .header {
+    padding-top: 27px;
+    margin-bottom: 90px;
+  }
+
+  .header__container {
+    grid-template-columns: repeat(2, max-content) 2fr 1fr;
+    grid-template-rows: 54px;
+    /* justify-content: space-between; */
+    grid-template-areas: "logo button form active";
+  }
+
+  .logo {
+    align-self: center;
+  }
+
+  .active__list {
+    gap: 70px;
+  }
+
+  .form__input {
+    padding-left: 40px;
+  }
+  
+  .form__input::placeholder {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  
+  .form__btn {
+    width: 101px;
+    background-size: 36px 36px;
+  }
+}

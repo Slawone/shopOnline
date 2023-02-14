@@ -5,11 +5,46 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <header class="header"></header>
+  <header class="header">
+    <div class="container header__container">
+      <div class="logo">Shop<span class="logo__blue-span">Online</span></div>
+      <button class="btn header__btn">
+        <img class="btn__img" src="img/icons/sort.svg" alt="">
+        <div class="btn__text">Меню</div>
+      </button>
+      <ul class="active__list">
+        <li class="active__item">
+          <a href="" class="active__link">
+            <img class="active__icon active__icon_basket" src="img/icons/person.svg" alt="">
+          </a>
+          <div class="active__text">Профиль</div>
+        </li>
+        <li class="active__item">
+          <a href="" class="active__link">
+            <img class="active__icon" src="img/icons/shopping_cart.svg" alt="">
+          </a>
+          <div class="active__text">Корзина</div>
+        </li>
+        <li class="active__item">
+          <a href="" class="active__link">
+            <img class="active__icon" src="img/icons/favorite.svg" alt="">
+          </a>
+          <div class="active__text">Избранное</div>
+        </li>
+      </ul>
+      <form class="form">
+        <input class="form__input" type="search" placeholder="Я ищу...">
+        <button class="form__btn"></button>
+      </form>
+    </div>
+  </header>
   <!-- <section class="banner">
     <div class="container">
       <h2 class="banner__title visually-hidden">Секция с большим рекламным банером</h2>
