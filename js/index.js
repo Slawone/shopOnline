@@ -1,6 +1,5 @@
-import timer from './timer.js';
+import timerCount from './timer.js';
 
-const bannerTimer = document.querySelector('.banner__timer');
-const deadline = bannerTimer.dataset.deadline;
+const deadline = document.querySelector('[data-timer-deadline]');
 
-timer(deadline);
+timerCount(deadline.dataset.timerDeadline);

@@ -1,83 +1,115 @@
-const timer = (deadline) => {
-  const bannerTimer = document.querySelector('.banner__timer');
+const timerCount = (deadline) => {
+  const dataTimerDeadline = document.querySelector('[data-timer-deadline]');
 
-  const bannerTimeDays = document.querySelector('.banner__time_days');
-  const bannerTimeHours = document.querySelector('.banner__time_hours');
-  const bannerTimeMinutes = document.querySelector('.banner__time_minutes');
+  if (dataTimerDeadline !== null) {
+    dataTimerDeadline.classList.add('timer');
 
-  const bannerDays = document.querySelector('.banner__days');
-  const bannerHours = document.querySelector('.banner__hours');
-  const bannerMinutes = document.querySelector('.banner__minutes');
+    const timerTitle = document.createElement('p');
+    timerTitle.classList.add('timer__title');
+    timerTitle.textContent = 'До конца акции осталось:';
 
-  const getTimeRemaining = () => {
-    const dateStop = new Date(deadline).getTime();
-    const dateNow = Date.now();
-    const timeRemaining = dateStop - dateNow;
+    const timerItemDays = document.createElement('p');
+    timerItemDays.classList.add('timer__item', 'timer__item_days');
+    const timerCountDays = document.createElement('span');
+    timerCountDays.classList.add('timer__count', 'timer__count_days');
+    const timerUnitsDays = document.createElement('span');
+    timerUnitsDays.classList.add('timer__units', 'timer__units_days');
 
+    timerItemDays.append(timerCountDays, timerUnitsDays);
 
-    const minutes = Math.floor(timeRemaining / (1000 * 60) % 60);
-    const hours = Math.floor(timeRemaining / (1000 * 60 * 60) % 24);
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const timerItemHours = document.createElement('p');
+    timerItemHours.classList.add('timer__item', 'timer__item_hours');
+    const timerCountHours = document.createElement('span');
+    timerCountHours.classList.add('timer__count', 'timer__count_hours');
+    const timerUnitsHours = document.createElement('span');
+    timerUnitsHours.classList.add('timer__units', 'timer__units_hours');
 
-    return {
-      timeRemaining,
-      days,
-      hours,
-      minutes,
-    }
-  }
+    timerItemHours.append(timerCountHours, timerUnitsHours);
 
-  const start = () => {
-    const timer = getTimeRemaining();
+    const timerItemMinutes = document.createElement('p');
+    timerItemMinutes.classList.add('timer__item', 'timer__item_minutes');
+    const timerCountMinutes = document.createElement('span');
+    timerCountMinutes.classList.add('timer__count', 'timer__count_minutes');
+    const timerUnitsMinutes = document.createElement('span');
+    timerUnitsMinutes.classList.add('timer__count', 'timer__units_minutes');
 
-    bannerTimeDays.textContent = timer.days;
-    bannerTimeHours.textContent = timer.hours;
-    bannerTimeMinutes.textContent = timer.minutes;
+    timerItemMinutes.append(timerCountMinutes, timerUnitsMinutes);
 
-    const intervalId = setTimeout(start, 1000);
+    const timerItemSeconds = document.createElement('p');
+    timerItemSeconds.classList.add('timer__item', 'timer__item_seconds');
+    const timerCountSeconds = document.createElement('span');
+    timerCountSeconds.classList.add('timer__count', 'timer__count_seconds');
+    const timerUnitsSeconds = document.createElement('span');
+    timerUnitsSeconds.classList.add('timer__count', 'timer__units_seconds');
 
-    if (timer.timeRemaining <= 0) {
-      clearTimeout(intervalId);
-      bannerTimeDays.textContent = '00';
-      bannerTimeHours.textContent = '00';
-      bannerTimeMinutes.textContent = '00';
-      bannerTimer.style.display = 'none';
-    }
+    timerItemSeconds.append(timerCountSeconds, timerUnitsSeconds);
 
-    if (timer.days === 1 
-      || (timer.days > 20 && timer.days % 10 === 1)) {
-        bannerDays.textContent = 'день';
-    } else if ((timer.days > 1 && timer.days < 5) 
-      || (timer.days > 21 && timer.days < 25)) {
-        bannerDays.textContent = 'дня';
-    } else {
-        bannerDays.textContent = 'дней';
-    }
+    const timerBox = document.createElement('div');
+    timerBox.classList.add('timer__box');
 
-    if (timer.hours === 1 || timer.hours === 21) {
-      bannerHours.textContent = 'час';
-    } else if ((timer.hours > 1 && timer.hours < 5) 
-      || timer.hours > 21) {
-        bannerHours.textContent = 'часа';
-    } else {
-      bannerHours.textContent = 'часов';
-    }
+    timerBox.append(
+        timerItemDays, timerItemHours, timerItemMinutes, timerItemSeconds);
 
-    if (timer.minutes === 1 
-      || (timer.minutes > 20 && timer.minutes % 10 === 1)) {
-        bannerMinutes.textContent = 'минута';
-    } else if ((timer.minutes > 1 && timer.minutes < 5) 
-      || (timer.minutes > 21 && timer.minutes < 25)
-      || (timer.minutes > 31 && timer.minutes < 35)
-      || (timer.minutes > 41 && timer.minutes < 45)
-      || (timer.minutes > 51 && timer.minutes < 55)) {
-        bannerMinutes.textContent = 'минуты';
+    dataTimerDeadline.append(timerTitle, timerBox);
+
+    const declOfNum = (number, titles) => {
+      const cases = [2, 0, 1, 1, 1, 2];
+      return titles[(number % 100 > 4 && number % 100 < 20) ?
+        2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+    };
+
+    const getTimeRemaining = () => {
+      const dateStop = new Date(deadline).getTime();
+      const dateNow = new Date();
+      const timeRemaining = dateStop - dateNow;
+
+      const days = Math.floor(timeRemaining / 1000 / 60 / 60 / 24);
+      const hours = Math.floor(timeRemaining / 1000 / 60 / 60 % 24);
+      const minutes = Math.floor(timeRemaining / 1000 / 60) % 60;
+      const seconds = Math.floor(timeRemaining / 1000) % 60;
+
+      return {
+        timeRemaining,
+        days,
+        hours,
+        minutes,
+        seconds,
+      };
+    };
+
+    const start = () => {
+      const HOURS_IN_DAY = 86400000;
+      const timer = getTimeRemaining();
+
+      const intervalId = setTimeout(start, 1000);
+
+      timerCountDays.textContent = timer.days;
+      timerUnitsDays.textContent =
+        declOfNum(timer.days, ['день', 'дня', 'дней']);
+      timerCountHours.textContent = timer.hours;
+      timerUnitsHours.textContent =
+        declOfNum(timer.hours, ['час', 'часа', 'часов']);
+      timerCountMinutes.textContent = timer.minutes;
+      timerUnitsMinutes.textContent =
+        declOfNum(timer.minutes, ['минута', 'минуты', 'минут']);
+      timerCountSeconds.textContent = timer.seconds;
+      timerUnitsSeconds.textContent =
+        declOfNum(timer.seconds, ['секунда', 'секунды', 'секунд']);
+
+      if (timer.timeRemaining > HOURS_IN_DAY) {
+        timerItemSeconds.style.display = 'none';
       } else {
-        bannerMinutes.textContent = 'минут';
+        timerItemDays.style.display = 'none';
       }
-  }  
 
-  start();
+      if (timer.timeRemaining <= 0) {
+        clearTimeout(intervalId);
+        dataTimerDeadline.style.display = 'none';
+      }
+    };
+
+    start();
+  }
 };
 
-export default timer;
+export default timerCount;
