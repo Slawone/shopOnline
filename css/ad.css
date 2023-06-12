@@ -541,3 +541,9 @@
     bottom: 37px;
   }
 }
+
+.timer__box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
