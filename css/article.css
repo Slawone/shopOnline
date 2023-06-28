@@ -1,0 +1,146 @@
+.art {
+  padding: 150px 0;
+}
+
+.breadcrumb {
+  margin-bottom: 80px;
+  color: #525252;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb__item {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.breadcrumb__separator {
+  vertical-align: middle;
+}
+
+.article {
+  color: #2D2D2D;
+}
+
+.article__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 143px;
+}
+
+.article__title {
+  margin-bottom: 40px;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.article__text {
+  margin-bottom: 100px;
+  max-width: 1095px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.article__copy {
+  font-size: 22px;
+  line-height: 150%;
+}
+
+.article__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.article__back {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 130%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author__title {
+  margin-bottom: 20px;
+  color: #000;
+  font-size: 22px;
+  line-height: 150%;
+}
+
+.author__data {
+  margin-bottom: 16px;
+  color: #8F8F8F;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.author__social {
+  color: #8F8F8F;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 130%;
+  display: flex;
+  gap: 25px
+}
+
+.author__views,
+.author__comments {
+  display: flex;
+  align-items: center;
+}
+
+.author__views {
+  gap: 4px;
+}
+.author__comments {
+  gap: 9px;
+}
+
+.ad {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.ad__item {
+  width: 532px;
+  height: 328px;  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.ad__item_stambul {
+  background-image: url('../img/blog/stambul.jpg');
+}
+
+.ad__item_duster {
+  background-image: url('../img/blog/duster.png');
+}
+
+.ad__info {
+  max-width: 400px;
+  position: absolute;
+  left: 30px;
+  bottom: 60px;
+}
+
+.ad__title {
+  margin-bottom: 4px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 130%;
+}
+.ad__info {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 130%;
+}
