@@ -4,7 +4,7 @@ const getPostData = async () => {
 
   const response = await fetch(`https://gorest.co.in/public-api/posts/`);
   const data = await response.json();
-  console.log(data);
+
   return data;
 };
 
@@ -23,7 +23,7 @@ const renderPosts = async () => {
       <div class="card__info">
         <h3 class="card__title">
           <a href="article.html?id=${item.id}&user_id=${item.user_id}"
-            class="card__link" target="_blank">
+            class="card__link">
             ${item.title}
           </a>
         </h3>
@@ -62,7 +62,7 @@ const renderArticlePage = async () => {
   const responseUser = await fetch(`https://gorest.co.in/public-api/users/${articleUserId}`);
   const resultUser = await responseUser.json();
   const user = resultUser.data;
-  console.log(user);
+
   const articleWrapper = document.querySelector('.article__wrapper');
 
   articleWrapper.insertAdjacentHTML('afterbegin', `
@@ -100,18 +100,53 @@ const renderArticlePage = async () => {
   `);
 };
 
-const createPag = async () => {
+const paginationList = document.querySelector('.pagination__list');
+const btnPrev = document.querySelector('.pagination__prev');
+const btnNext = document.querySelector('.pagination__next');
+
+const countPages = async () => {
   const pagination = await getPostData();
+  const totalPages = [];
+  let start = 0;
+  let end = 3;
 
-  const blogPagination = document.querySelector('.blog__pagination');
+  const pageParams = new URLSearchParams(location.search);
+  const page = pageParams.get('page');
 
-  for (let i = 1; i < pagination.meta.pagination.pages; i += 1) {
-    blogPagination.innerHTML += `
-      <a href="blog.html?page=${i}" class="pagiantion__link">${i}</a>
-    `;
+  for (let index = 1; index < pagination.meta.pagination.pages + 1; index++) {
+    totalPages.push(index);
   }
+
+  const getSlice = (start, end) => {
+    totalPages.slice(start, end).forEach(item => {
+      paginationList.innerHTML += `<li class="pagination__item">
+        <a class="pagination__link" href="blog.html?page=${item}">${item}</a>
+        </li>`;
+    });
+  };
+
+  if (page === null) {
+    getSlice(start, end);
+  }
+
+  start = +page;
+  end = +page + end;
+
+  if (page > 1) {
+    getSlice(start, end);
+  }
+
+  btnPrev.addEventListener('click', () => {
+    paginationList.innerHTML = '';
+    getSlice(--start, --end);
+  });
+
+  btnNext.addEventListener('click', () => {
+    paginationList.innerHTML = '';
+    getSlice(++start, ++end);
+  });
 };
 
 renderPosts();
 renderArticlePage();
-createPag();
+countPages();
